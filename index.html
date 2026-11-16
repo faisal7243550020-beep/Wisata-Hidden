@@ -208,7 +208,7 @@ body.menu-open .menu-btn .ic-x{display:block}
 .sa-list .ic{width:16px;height:16px;margin-top:3px;color:var(--sand);stroke-width:2.2}
 .sa-ship{border-top:1px solid rgba(226,194,117,.25);padding-top:16px;font-size:13px;color:var(--sand);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
 .sa-ship .ic{width:16px;height:16px;margin-top:2px;stroke-width:2}
-.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:22px}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:22px}
 .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .prod:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .prod--wide{grid-column:span 2;display:grid;grid-template-columns:200px 1fr}
@@ -217,16 +217,29 @@ body.menu-open .menu-btn .ic-x{display:block}
 .prod-media img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
 .prod:hover .prod-media img{transform:scale(1.07)}
 .prod-tag{position:absolute;top:12px;left:12px;background:var(--sand);color:var(--forest-deep);font:700 10.5px var(--font-b);letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px}
+.prod-badge{position:absolute;top:12px;right:12px;background:rgba(22,56,42,.88);color:var(--sand);font:600 10px var(--font-b);letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px;backdrop-filter:blur(4px)}
 .prod-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
 .prod-maker{font:600 11px var(--font-b);letter-spacing:.14em;text-transform:uppercase;color:var(--earth)}
-.prod-body h3{font:500 1.18rem var(--font-d);color:var(--forest);margin-top:5px}
-.prod-desc{margin-top:7px;font-size:13px;color:var(--ink-soft);line-height:1.55}
-.prod-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px}
-.prod-price strong{font:500 1.05rem var(--font-d);color:var(--ink)}
-.prod-price span{font-size:12px;color:var(--ink-soft)}
-.add-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--forest);color:var(--forest);font:600 12.5px var(--font-b);transition:.25s}
-.add-btn:hover{background:var(--terra);border-color:var(--terra);color:#FFF9EE}
+.prod-body h3{font:500 1.12rem var(--font-d);color:var(--forest);margin-top:5px}
+.prod-desc{margin-top:7px;font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+.prod-variants{margin-top:14px;display:flex;flex-direction:column;gap:7px}
+.vlabel{font:600 10px var(--font-b);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.vchips{display:flex;flex-wrap:wrap;gap:6px}
+.vchip{display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;border:1.5px solid var(--line-strong);background:var(--cream);color:var(--ink-soft);font:600 11px var(--font-b);transition:.2s;cursor:pointer;white-space:nowrap}
+.vchip:hover:not(:disabled){border-color:var(--forest);color:var(--forest)}
+.vchip.active{background:var(--forest);border-color:var(--forest);color:var(--sand)}
+.vchip:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.prod-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px}
+.prod-price{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.prod-price strong{font:500 1.08rem var(--font-d);color:var(--ink)}
+.prod-stock{display:inline-flex;align-items:center;gap:6px;font:600 10.5px var(--font-b);letter-spacing:.04em}
+.prod-stock::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.prod-stock.in{color:var(--forest)}
+.prod-stock.out{color:#A6321E}
+.add-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--forest);color:var(--forest);font:600 12.5px var(--font-b);transition:.25s;flex:none}
+.add-btn:hover:not(:disabled){background:var(--terra);border-color:var(--terra);color:#FFF9EE}
 .add-btn.added{background:var(--forest);border-color:var(--forest);color:var(--sand)}
+.add-btn:disabled{opacity:.45;cursor:not-allowed;background:transparent;border-color:var(--line-strong);color:var(--ink-soft)}
 .add-btn .ic{width:14px;height:14px;stroke-width:2.4}
 
 /* ============ JOURNEY ============ */
@@ -315,8 +328,9 @@ body.menu-open .menu-btn .ic-x{display:block}
 .cart-item{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
 .cart-item img{width:64px;height:64px;border-radius:11px;object-fit:cover;flex:none}
 .ci-main{flex:1;min-width:0}
-.ci-main h4{font:500 1rem var(--font-d);color:var(--forest);line-height:1.3}
-.ci-price{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.ci-main h4{font:500 .98rem var(--font-d);color:var(--forest);line-height:1.3}
+.ci-variant{font:600 11px var(--font-b);letter-spacing:.04em;color:var(--terra);margin-top:3px}
+.ci-price{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
 .ci-qty{display:inline-flex;align-items:center;gap:2px;margin-top:9px;border:1px solid var(--line-strong);border-radius:999px}
 .ci-qty button{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;transition:color .2s}
 .ci-qty button:hover{color:var(--terra)}
@@ -663,8 +677,8 @@ body.menu-open .menu-btn .ic-x{display:block}
     <div class="vt-wrap" data-reveal>
       <div class="vt-stage" id="vtStage">
         <div class="vt-track" id="vtTrack">
-          <img src="https://z-cdn-media.chatglm.cn/files/da2dcfe7-d85a-428f-8194-d7068ab8f3a5.jpeg?auth_key=1894814032-83e2350248dc4abca02b2e8e2b7e8aed-0-edaec6604d64a2bd2e8b15e7a65fc657" alt="Panorama Jembatan Nining Galang di Tangkahan" draggable="false" onerror="this.onerror=null;this.src='https://picsum.photos/seed/ngb-pano-bridge/3000/800.jpg'">
-          <img src="https://z-cdn-media.chatglm.cn/files/da2dcfe7-d85a-428f-8194-d7068ab8f3a5.jpeg?auth_key=1894814032-83e2350248dc4abca02b2e8e2b7e8aed-0-edaec6604d64a2bd2e8b15e7a65fc657" alt="" draggable="false" aria-hidden="true" onerror="this.onerror=null;this.src='https://picsum.photos/seed/ngb-pano-bridge/3000/800.jpg'">
+          <img src="https://z-cdn-media.chatglm.cn/files/6ca40c4f-ee79-45b0-8ccb-33717adb1ca2.jpeg?auth_key=1894828848-efb0006f7995412687ad88482cc717ad-0-c8db9b5617753ce67385e600de58dd07" alt="Panorama Jembatan Nining Galang di Tangkahan" draggable="false" onerror="this.onerror=null;this.src='https://picsum.photos/seed/ngb-pano-bridge/3000/800.jpg'">
+          <img src="https://z-cdn-media.chatglm.cn/files/6ca40c4f-ee79-45b0-8ccb-33717adb1ca2.jpeg?auth_key=1894828848-efb0006f7995412687ad88482cc717ad-0-c8db9b5617753ce67385e600de58dd07" alt="" draggable="false" aria-hidden="true" onerror="this.onerror=null;this.src='https://picsum.photos/seed/ngb-pano-bridge/3000/800.jpg'">
         </div>
         <span class="vt-hint"><svg class="ic"><use href="#i-drag"/></svg> Drag untuk menjelajah</span>
         <div class="vt-arrows">
@@ -689,7 +703,7 @@ body.menu-open .menu-btn .ic-x{display:block}
     <div class="section-head" data-reveal>
       <p class="eyebrow">Dari Tangan Warga</p>
       <h2>Local UMKM &amp; <em>Souvenir Shop</em></h2>
-      <p class="section-sub">Tidak sempat ke lokasi? Bawa pulang sepotong Tangkahan — dari kopi hutan hingga ulos tenun, semua dikirim langsung oleh perajinnya.</p>
+      <p class="section-sub">Sembilan kriya khas Tangkahan — pilih ukuran, motif, atau warna sesuai hati Anda. Tiap rupiah mengalir langsung ke keluarga perajin, bukan perantara.</p>
     </div>
 
     <div class="shop-layout">
@@ -703,7 +717,7 @@ body.menu-open .menu-btn .ic-x{display:block}
         </ul>
         <p class="sa-ship"><svg class="ic"><use href="#i-lifebuoy"/></svg><span id="freeShipNote">Gratis ongkir se-Indonesia untuk belanja di atas Rp 500.000.</span></p>
       </aside>
-      <div class="shop-grid" id="shopGrid"><!-- produk dirender oleh JavaScript --></div>
+      <div class="shop-grid" id="shopGrid"><!-- 9 produk + variasi dirender oleh JavaScript --></div>
     </div>
   </div>
 </section>
@@ -928,14 +942,116 @@ const $$ = (s, c=document) => [...c.querySelectorAll(s)];
 const rp = n => 'Rp ' + n.toLocaleString('id-ID');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ================= DATA ================= */
+/* ================= DATA: 9 PRODUK UMKM TANGKAHAN + VARIASI ================= */
+/* Foto produk diambil langsung dari lampiran pengguna (URL z-cdn-media).
+   Setiap produk punya array `variants`: {id, label, price, stock:'in'|'out'}.
+   Badge kategori: Aksesori / Kriya Kayu / Oleh-Oleh / Seni Lukis. */
 const PRODUCTS = [
-  {id:'madu',    name:'Madu Hutan Leuser',            maker:'Peramu Madu Batang Serangan',      price:120000, unit:'botol 250 ml',   seed:'ngb-madu',     tag:'Stok Terbatas',       img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrWKbB4oaBpCChTfrNS9qEiLkEFYTut6lyJ2gw5GOlHA&s=10', desc:'Panen lestari dari sodetan lama tanpa pemanasan — aroma flora hutan hujan yang masih hidup.'},
-  {id:'kaos',    name:'Kaos Ekowisata Jaga Leuser',   maker:'Pemuda Tangkahan Printing',        price:95000,  unit:'katun combed',   seed:'ngb-kaos',     tag:'Favorit',             img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsBx7QIVld_shysk4uxyFgmH2bem0Z2HjkxoWHXFYPSQ&s=10', desc:'Sablon tangan oleh pemuda desa; 10% penjualan menyokong rantai makanan gajah.'},
-  {id:'tas',     name:'Tas Anyaman Pandan',           maker:'Ibu-ibu Namo Sialang',             price:145000, unit:'1 pcs',          seed:'ngb-tas',                                img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXICxz14babVFSCVdEztMBv6xlQFA-a__AlF0DZjPBSw&s=10', desc:'Dianyam tangan dari daun pandan sungai — kuat untuk harian dan ringan dibawa pulang.'},
-  {id:'ransel',  name:'Ransel Kanvas Petualang',      maker:'Konveksi Ekowisata Sumut',         price:265000, unit:'kanvas wax',     seed:'ngb-ransel',   tag:'Perlengkapan Wisata', img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=640&h=640&q=80', desc:'Kanvas tahan air dengan sekat laptop — pendamping setia dari bandara sampai hutan.'},
-  {id:'topi',    name:'Topi Jerami Penjelajah',       maker:'Perajin Batang Serangan',          price:65000,  unit:'1 pcs',          seed:'ngb-topi',                                img:'https://images.unsplash.com/photo-1533055640609-24b498dfd74c?auto=format&fit=crop&w=640&h=640&q=80', desc:'Anyaman jerami lebar berpita katun — pelindung matahari khas petani dan penjelajah Leuser.'},
-  {id:'kartupos',name:'Kartu Pos Lukis Anak Desa',    maker:'Sanggar Anak Tangkahan',           price:40000,  unit:'set 6 lembar',   seed:'ngb-kartupos',                            img:'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=640&h=640&q=80', desc:'Lukisan tinta anak-anak desa tentang gajah, sungai, dan hutan mereka — siap dikirim ke rumah.'}
+  {
+    id:'kalung-batu', name:'Kalung Batu & Manik Warna', maker:'Pengrajin Aksesori Tangkahan',
+    unit:'per pcs', seed:'ngb-kalung-batu', badge:'Aksesori',
+    img:'https://z-cdn-media.chatglm.cn/files/acc6b64f-3757-43e1-b7bd-60318c02d9c0.jpeg?auth_key=1894828848-5f8f88dd568d4e6d91b4abf37b8a0fc3-0-7c925790545292bfac72627d7601c430',
+    desc:'Dirangkai tangan di atas papan kayu bekas rakit sungai — kalung dari batu akik, manik warna, kerang laut, dan topeng kayu. Tiap helai membawa tanda tangan perajin.',
+    variants:[
+      {id:'batu',   label:'Batu Akik',    price:75000, stock:'in'},
+      {id:'manik',  label:'Manik Warna',  price:45000, stock:'in'},
+      {id:'kerang', label:'Kerang Laut',  price:55000, stock:'in'},
+      {id:'topeng', label:'Topeng Kayu',  price:85000, stock:'out'}
+    ]
+  },
+  {
+    id:'patung-gajah', name:'Patung Gajah Mahoni', maker:'Pengrajin Kayu Batang Serangan',
+    unit:'per pcs', seed:'ngb-patung-gajah', badge:'Kriya Kayu', tag:'Best Seller',
+    img:'https://z-cdn-media.chatglm.cn/files/4708926d-baf9-4e60-8a80-3ff52ba816c9.jpeg?auth_key=1894828848-8ffc083928284d7ba7045cab49c2a269-0-9a17c25fd6f82bc4f60887fc359babc8',
+    desc:'Gajah sumatera dipahat dari mahoni bekas rakit sungai — simbol santuari Tangkahan. Dihaluskan tangan tanpa cat, agar urat kayu tetap bercerita.',
+    variants:[
+      {id:'kecil',  label:'Kecil · 8 cm',   price:75000,  stock:'in'},
+      {id:'sedang', label:'Sedang · 12 cm', price:125000, stock:'in'},
+      {id:'besar',  label:'Besar · 18 cm',  price:185000, stock:'in'}
+    ]
+  },
+  {
+    id:'kalender', name:'Kalender Kayu I Love Indonesia', maker:'Konveksi Kriya Sumut',
+    unit:'per pcs', seed:'ngb-kalender', badge:'Kriya Kayu',
+    img:'https://z-cdn-media.chatglm.cn/files/4079694e-5fae-4d2c-b439-ce5b2c2e1abc.jpeg?auth_key=1894828848-1PbWWqgKDBDorh525uecKaGZD21FGSoCeR-0-dcf4c4758633bf4c0ad261b753c8b10e',
+    desc:'Kalender balok kayu dengan tanggal putar — suvenir abadi yang tak lekang tahun. Dihias orisinal oleh pemuda desa, cocok untuk meja kerja dan hadiah.',
+    variants:[
+      {id:'natural', label:'Natural',          price:95000,  stock:'in'},
+      {id:'ili',     label:'I Love Indonesia', price:115000, stock:'in'},
+      {id:'gajah',   label:'Motif Gajah',      price:125000, stock:'out'}
+    ]
+  },
+  {
+    id:'patung-ukir', name:'Patung Mini Ukir Bakar', maker:'Sanggar Ukir Tangkahan',
+    unit:'per pcs', seed:'ngb-patung-ukir', badge:'Kriya Kayu',
+    img:'https://z-cdn-media.chatglm.cn/files/7c01c941-7410-4df9-876d-198ac43531a5.jpeg?auth_key=1894828848-6d6aff26c8fd441db6973b70b10cfbbf-0-35daae97ebf707dc0f3acbf1f804d1c5',
+    desc:'Patung kepala satwa diukir tangan lalu dibakar untuk memunculkan urat gelap — teknik bakar khas Tangkahan. Pilihan motif satwa liar Leuser.',
+    variants:[
+      {id:'harimau',   label:'Harimau Sumatera', price:95000, stock:'in'},
+      {id:'orangutan', label:'Orangutan',        price:85000, stock:'in'},
+      {id:'gajah',     label:'Gajah',            price:75000, stock:'in'}
+    ]
+  },
+  {
+    id:'kalung-satwa', name:'Kalung Ukir Satwa Leuser', maker:'Pemuda Tangkahan Handicraft',
+    unit:'per pcs', seed:'ngb-kalung-satwa', badge:'Aksesori', tag:'Favorit',
+    img:'https://z-cdn-media.chatglm.cn/files/c511897c-f6c4-4df6-b52b-04aea5aac6b9.jpeg?auth_key=1894828848-1PbWWqgKDBDorh525uecKaGZD21FGSoCeR-0-928cd468ed20ca73e4c41b09ed09394f',
+    desc:'Kalung ukiran satwa Leuser — harimau, orangutan, gajah, dan kerang — digantung tali kulit dan benang kapas. Dipajang langsung dari rak bambu pasar Tangkahan.',
+    variants:[
+      {id:'harimau',   label:'Motif Harimau',   price:65000, stock:'in'},
+      {id:'orangutan', label:'Motif Orangutan', price:55000, stock:'in'},
+      {id:'gajah',     label:'Motif Gajah',     price:55000, stock:'in'},
+      {id:'kerang',    label:'Motif Kerang',    price:35000, stock:'out'}
+    ]
+  },
+  {
+    id:'magnet', name:'Magnet Kayu Bakar Tangkahan', maker:'Sanggar Anak Tangkahan',
+    unit:'per set', seed:'ngb-magnet', badge:'Oleh-Oleh', tag:'Best Seller',
+    img:'https://z-cdn-media.chatglm.cn/files/1fbe68de-2726-4d0f-9682-398097dddf26.jpeg?auth_key=1894828848-4812fea27bcc438298a5decef0e1a846-0-eb4d3d2011bad70c43f45a019c9c9828',
+    desc:'Magnet kayu dibakar dan dicat tangan oleh anak-anak desa — bertema satwa Tangkahan, dikemas dengan label "Tangkahan North Sumatra". Sepuluh persen hasil masuk kas sanggar.',
+    variants:[
+      {id:'gajah',     label:'Motif Gajah',     price:25000, stock:'in'},
+      {id:'orangutan', label:'Motif Orangutan', price:25000, stock:'in'},
+      {id:'rafflesia', label:'Motif Rafflesia', price:30000, stock:'in'},
+      {id:'bunga',     label:'Motif Bunga',     price:15000, stock:'in'}
+    ]
+  },
+  {
+    id:'gelang', name:'Gelang Anyaman Warna', maker:'Ibu-ibu Tangkahan',
+    unit:'per pcs', seed:'ngb-gelang', badge:'Aksesori',
+    img:'https://z-cdn-media.chatglm.cn/files/14e7b328-624a-465e-8ae6-e2003fdede2e.jpeg?auth_key=1894828848-8835c83a52cf43b4a7eb017c732b164b-0-8358a72c7a410b913fca44ad3a42c50f',
+    desc:'Gelang anyaman tangan dari benang katun dan serat kayu, tahan air. Dianyam ibu-ibu desa di sela pekerjaan rumah — pilihan warna cerah khas pasar Tangkahan.',
+    variants:[
+      {id:'biru',   label:'Biru Sungai',   price:12000, stock:'in'},
+      {id:'pink',   label:'Pink Fajar',    price:12000, stock:'in'},
+      {id:'kuning', label:'Kuning Kunyit', price:12000, stock:'in'},
+      {id:'ungu',   label:'Ungu Senja',    price:15000, stock:'in'},
+      {id:'hitam',  label:'Hitam Mahoni',  price:15000, stock:'out'}
+    ]
+  },
+  {
+    id:'lukisan', name:'Lukisan Pencil Satwa Leuser', maker:'Sanggar Sketsa Tangkahan',
+    unit:'per lembar', seed:'ngb-lukisan', badge:'Seni Lukis',
+    img:'https://z-cdn-media.chatglm.cn/files/c4553105-0295-493e-ab74-e10d410413c7.jpeg?auth_key=1894828848-5b5dad97cafb4f4b8a13c207d2423c3e-0-11be75a52f8c4a0519f8851efbfaf588',
+    desc:'Sketsa pencil tangan di atas kertas karton — potret satwa liar Leuser yang mungkin Anda jumpai di tracking. Digambar seniman muda desa, dikemas rangka kayu ringan.',
+    variants:[
+      {id:'rafflesia', label:'Rafflesia Tangkahan', price:125000, stock:'in'},
+      {id:'keluarga',  label:'Gajah & Anak',        price:185000, stock:'in'},
+      {id:'solo',      label:'Gajah Solo',          price:95000,  stock:'in'},
+      {id:'orangutan', label:'Orangutan',           price:115000, stock:'out'}
+    ]
+  },
+  {
+    id:'cincin', name:'Cincin Kayu & Baja', maker:'Pengrajin Aksesori Namo Sialang',
+    unit:'per pcs', seed:'ngb-cincin', badge:'Aksesori',
+    img:'https://z-cdn-media.chatglm.cn/files/2877167d-66c1-4463-9757-32774d66c2d0.jpeg?auth_key=1894828848-01PbWWqgKDBDorh525uecKaGZD21FGSoCeR-0-e0af1PbWWqgKDBDorh525uecKaGZD21FGSoCeR',
+    desc:'Cincin dari dua bahan berbeda — kayu mahoni yang hangat dan baja titanium yang tahan lama. Dipajang di nampan anyaman, tiap cincin ditimbang dan diberi harga tangan.',
+    variants:[
+      {id:'mahoni', label:'Kayu Mahoni',   price:25000, stock:'in'},
+      {id:'bakar',  label:'Kayu Bakar',    price:35000, stock:'in'},
+      {id:'baja',   label:'Baja Titanium', price:95000, stock:'in'}
+    ]
+  }
 ];
 const PKGS = {
   eco:    {name:'2D1N Eco-Lodge Experience',            price:1200000},
@@ -1027,55 +1143,137 @@ if(heroMedia && !reducedMotion){
   }, {passive:true});
 }
 
-/* ================= SHOP RENDER ================= */
+/* ================= SHOP RENDER + VARIASI ================= */
 const shopGrid = $('#shopGrid');
-shopGrid.innerHTML = PRODUCTS.map((p, i) => `
-  <article class="prod" data-reveal style="--d:${(i % 4) * .06}s">
+
+shopGrid.innerHTML = PRODUCTS.map((p, i) => {
+  // varian default = varian tersedia pertama; fallback ke varian pertama jika semua habis
+  const firstInStock = p.variants.find(v => v.stock === 'in') || p.variants[0];
+  const allOut = !p.variants.some(v => v.stock === 'in');
+  return `
+  <article class="prod" data-reveal style="--d:${(i % 4) * .06}s" data-pid="${p.id}" data-vid="${firstInStock.id}">
     <div class="prod-media">
       <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${p.seed}/640/640.jpg'">
       ${p.tag ? `<span class="prod-tag">${p.tag}</span>` : ''}
+      ${p.badge ? `<span class="prod-badge">${p.badge}</span>` : ''}
     </div>
     <div class="prod-body">
       <p class="prod-maker">${p.maker}</p>
       <h3>${p.name}</h3>
       <p class="prod-desc">${p.desc}</p>
+      <div class="prod-variants">
+        <p class="vlabel">Pilih variasi</p>
+        <div class="vchips">
+          ${p.variants.map(v => `
+            <button class="vchip${v.id===firstInStock.id?' active':''}" data-vid="${v.id}" ${v.stock==='out'?'disabled':''}>${v.label}</button>
+          `).join('')}
+        </div>
+      </div>
       <div class="prod-foot">
-        <div class="prod-price"><strong>${rp(p.price)}</strong> <span>/ ${p.unit}</span></div>
-        <button class="add-btn" data-add="${p.id}"><svg class="ic"><use href="#i-plus"/></svg><span class="add-label">Tambah</span></button>
+        <div class="prod-price">
+          <strong class="vprice">${rp(firstInStock.price)}</strong>
+          <span class="prod-stock ${firstInStock.stock==='in'?'in':'out'}">${firstInStock.stock==='in'?'Stok tersedia':'Stok habis'}</span>
+        </div>
+        <button class="add-btn" data-add="${p.id}" ${allOut||firstInStock.stock==='out'?'disabled':''}>
+          <svg class="ic"><use href="#i-plus"/></svg><span class="add-label">${allOut?'Habis':'Tambah'}</span>
+        </button>
       </div>
     </div>
-  </article>`).join('');
+  </article>`;
+}).join('');
 $$('.prod', shopGrid).forEach(el => revealIO.observe(el));
 
-/* ================= CART ================= */
+/* Ganti variasi terpilih — update harga, indikator stok, dan status tombol Tambah */
+function selectVariant(card, vid){
+  const p = PRODUCTS.find(x => x.id === card.dataset.pid);
+  const v = p.variants.find(x => x.id === vid);
+  if(!v || v.stock === 'out') return;
+  card.dataset.vid = vid;
+  card.querySelectorAll('.vchip').forEach(c => c.classList.toggle('active', c.dataset.vid === vid));
+  card.querySelector('.vprice').textContent = rp(v.price);
+  const stockEl = card.querySelector('.prod-stock');
+  stockEl.className = 'prod-stock in';
+  stockEl.textContent = 'Stok tersedia';
+  const addBtn = card.querySelector('.add-btn');
+  addBtn.disabled = false;
+  addBtn.querySelector('.add-label').textContent = 'Tambah';
+}
+
+/* Delegasi klik: pilih variasi atau tambah ke keranjang */
+shopGrid.addEventListener('click', e => {
+  const chip = e.target.closest('.vchip');
+  if(chip && !chip.disabled){
+    selectVariant(chip.closest('.prod'), chip.dataset.vid);
+    return;
+  }
+  const addBtn = e.target.closest('[data-add]');
+  if(addBtn && !addBtn.disabled){
+    const card = addBtn.closest('.prod');
+    addToCart(card.dataset.pid, card.dataset.vid);
+    const lbl = addBtn.querySelector('.add-label');
+    addBtn.classList.add('added');
+    lbl.textContent = 'Ditambahkan';
+    setTimeout(() => { addBtn.classList.remove('added'); lbl.textContent = 'Tambah'; }, 1300);
+  }
+});
+
+/* ================= CART (localStorage, key per variasi) ================= */
+/* Bentuk item: {key, pid, vid, name, variant, price, qty, unit, seed, img}
+   key = pid + '::' + vid  → variasi berbeda = baris terpisah */
 let cart = [];
-try { cart = JSON.parse(localStorage.getItem('ngb-cart')) || []; } catch(e){ cart = []; }
+try {
+  const raw = JSON.parse(localStorage.getItem('ngb-cart')) || [];
+  cart = Array.isArray(raw) ? raw.filter(c => c && c.key && c.pid && c.vid && c.name) : [];
+} catch(e){ cart = []; }
 const save = () => { try { localStorage.setItem('ngb-cart', JSON.stringify(cart)); } catch(e){} };
+
+function addToCart(pid, vid){
+  const p = PRODUCTS.find(x => x.id === pid);
+  const v = p && p.variants.find(x => x.id === vid);
+  if(!p || !v || v.stock === 'out') return;
+  const key = pid + '::' + vid;
+  const existing = cart.find(c => c.key === key);
+  if(existing){
+    existing.qty++;
+  } else {
+    cart.push({
+      key, pid, vid,
+      name: p.name,
+      variant: v.label,
+      price: v.price,
+      qty: 1,
+      unit: p.unit,
+      seed: p.seed,
+      img: p.img
+    });
+  }
+  save(); renderCart(); bump();
+  if(!cartDrawer.classList.contains('open')) openOverlay(cartDrawer);
+}
 
 function renderCart(){
   const box = $('#cartItems');
   if(!cart.length){
-    box.innerHTML = `<div class="cart-empty"><svg class="ic"><use href="#i-bag"/></svg><p>Keranjang masih kosong</p><span>Dukung UMKM Tangkahan — mulai dari madu hutan &amp; suvenir kecil.</span></div>`;
+    box.innerHTML = `<div class="cart-empty"><svg class="ic"><use href="#i-bag"/></svg><p>Keranjang masih kosong</p><span>Dukung UMKM Tangkahan — mulai dari magnet kayu &amp; gelang anyaman.</span></div>`;
   } else {
-    box.innerHTML = cart.map(c => {
-      const p = PRODUCTS.find(x => x.id === c.id);
-      if(!p) return '';
-      return `<div class="cart-item">
-        <img src="${p.img.replace('w=640&h=640','w=160&h=160')}" alt="${p.name}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${p.seed}/160/160.jpg'">
+    box.innerHTML = cart.map(c => `
+      <div class="cart-item">
+        <img src="${c.img}" alt="${c.name}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${c.seed}/160/160.jpg'">
         <div class="ci-main">
-          <h4>${p.name}</h4>
-          <p class="ci-price">${rp(p.price)} <span>· ${p.unit}</span></p>
+          <h4>${c.name}</h4>
+          <p class="ci-variant">${c.variant}</p>
+          <p class="ci-price">${rp(c.price)} <span>· ${c.unit}</span></p>
           <div class="ci-qty">
-            <button data-dec="${p.id}" aria-label="Kurangi jumlah"><svg class="ic"><use href="#i-minus"/></svg></button>
+            <button data-dec="${c.key}" aria-label="Kurangi jumlah"><svg class="ic"><use href="#i-minus"/></svg></button>
             <span>${c.qty}</span>
-            <button data-inc="${p.id}" aria-label="Tambah jumlah"><svg class="ic"><use href="#i-plus"/></svg></button>
+            <button data-inc="${c.key}" aria-label="Tambah jumlah"><svg class="ic"><use href="#i-plus"/></svg></button>
           </div>
         </div>
-        <button class="ci-del" data-del="${p.id}" aria-label="Hapus dari keranjang"><svg class="ic"><use href="#i-trash"/></svg></button>
-      </div>`;
-    }).join('');
+        <button class="ci-del" data-del="${c.key}" aria-label="Hapus dari keranjang"><svg class="ic"><use href="#i-trash"/></svg></button>
+      </div>
+    `).join('');
   }
-  const total = cart.reduce((s, c) => { const p = PRODUCTS.find(x => x.id === c.id); return p ? s + p.price * c.qty : s; }, 0);
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
   const count = cart.reduce((s, c) => s + c.qty, 0);
   $('#cartTotal').textContent = rp(total);
   $('#cartPill').textContent = count + ' item';
@@ -1088,27 +1286,22 @@ function renderCart(){
     : 'Selamat — pesanan Anda mendapat gratis ongkir se-Indonesia.';
 }
 function bump(){ const b = $('#cartCount'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
-function addToCart(id){
-  const it = cart.find(c => c.id === id);
-  it ? it.qty++ : cart.push({id, qty:1});
-  save(); renderCart(); bump();
-  if(!cartDrawer.classList.contains('open')) openOverlay(cartDrawer);
-}
-shopGrid.addEventListener('click', e => {
-  const b = e.target.closest('[data-add]'); if(!b) return;
-  addToCart(b.dataset.add);
-  const lbl = b.querySelector('.add-label');
-  b.classList.add('added'); lbl.textContent = 'Ditambahkan';
-  setTimeout(() => { b.classList.remove('added'); lbl.textContent = 'Tambah'; }, 1300);
-});
+
+/* Delegasi aksi dalam keranjang: inc / dec / del — berdasarkan key varian */
  $('#cartItems').addEventListener('click', e => {
-  const inc = e.target.closest('[data-inc]'), dec = e.target.closest('[data-dec]'), del = e.target.closest('[data-del]');
-  if(inc){ cart.find(c => c.id === inc.dataset.inc).qty++; }
-  else if(dec){ const it = cart.find(c => c.id === dec.dataset.dec); it.qty > 1 ? it.qty-- : cart = cart.filter(c => c !== it); }
-  else if(del){ cart = cart.filter(c => c.id !== del.dataset.del); }
-  else return;
+  const inc = e.target.closest('[data-inc]');
+  const dec = e.target.closest('[data-dec]');
+  const del = e.target.closest('[data-del]');
+  const key = inc?.dataset.inc || dec?.dataset.dec || del?.dataset.del;
+  if(!key) return;
+  const it = cart.find(c => c.key === key);
+  if(!it) return;
+  if(inc){ it.qty++; }
+  else if(dec){ it.qty > 1 ? it.qty-- : cart = cart.filter(c => c.key !== key); }
+  else if(del){ cart = cart.filter(c => c.key !== key); }
   save(); renderCart();
 });
+
  $('#cartBtn').addEventListener('click', () => openOverlay(cartDrawer));
  $('#checkoutBtn').addEventListener('click', () => {
   if(!cart.length){ toast('Keranjang kosong', 'Tambahkan produk UMKM terlebih dahulu sebelum checkout.', 'info'); return; }
@@ -1116,7 +1309,7 @@ shopGrid.addEventListener('click', e => {
   btn.disabled = true; btn.textContent = 'Memproses pesanan…';
   setTimeout(() => {
     btn.disabled = false; btn.innerHTML = old;
-    const total = cart.reduce((s, c) => { const p = PRODUCTS.find(x => x.id === c.id); return p ? s + p.price * c.qty : s; }, 0);
+    const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
     const kode = 'NGB-S' + Math.floor(1000 + Math.random() * 9000);
     cart = []; save(); renderCart(); closeAll();
     toast(`Pesanan ${kode} diterima`, `Total ${rp(total)}. Invoice & opsi pembayaran (termasuk QRIS) dikirim ke WhatsApp Anda.`);
@@ -1167,15 +1360,15 @@ $$('[data-legal]').forEach(b => b.addEventListener('click', () => openOverlay(le
 (function(){
   const stage = $('#vtStage'), track = $('#vtTrack');
   if(!stage) return;
-  // Foto asli Jembatan Nini Galang (unggahan pengguna) + rantai fallback onerror
-  const BRIDGE_IMG = 'https://z-cdn-media.chatglm.cn/files/da2dcfe7-d85a-428f-8194-d7068ab8f3a5.jpeg?auth_key=1894814032-83e2350248dc4abca02b2e8e2b7e8aed-0-edaec6604d64a2bd2e8b15e7a65fc657';
+  // Foto jembatan dari lampiran terbaru pengguna (file id 6ca40c4f)
+  const BRIDGE_IMG = 'https://z-cdn-media.chatglm.cn/files/6ca40c4f-ee79-45b0-8ccb-33717adb1ca2.jpeg?auth_key=1894828848-efb0006f7995412687ad88482cc717ad-0-c8db9b5617753ce67385e600de58dd07';
   const u = (id, w) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
   const SCENES = [
     {name:'Jembatan Nining Galang', img:BRIDGE_IMG, fb:['https://picsum.photos/seed/ngb-pano-bridge/3000/800.jpg'], desc:'Jembatan gantung ikonik Tangkahan — pintu masuk menuju kawasan santuari gajah, melintasi Sungai Batang Serangan.'},
-    {name:'Sungai Batang Serangan', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1TlaWcWd6DNb94iSrTIwRAnw_WrlDc4XRZUFRUUJvjYDmfDft5nolZ-M&s=10', fb:[u('photo-1523712999610-f77fbcfc3843',1600),'https://picsum.photos/seed/ngb-pano-river/3000/800.jpg'], desc:'Arena river tubing & rafting dengan air jernih langsung dari kaki pegunungan Leuser.'},
-    {name:'Kawasan Santuari Gajah', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz2xXgNJUcl880Rvqd3cHLh8mp64SjUJRJHkccLpYVEA&s=10', fb:[u('photo-1557050543-4d5f4e07ef46',1600),'https://picsum.photos/seed/ngb-pano-elephant/3000/800.jpg'], desc:'Area perawatan & pemulihan gajah sumatera bersama para mahout lokal.'}
+    {name:'Sungai Batang Serangan', img:u('photo-1523712999610-f77fbcfc3843',1600), fb:[u('photo-1441974231531-c6227db76b6e',1600),'https://picsum.photos/seed/ngb-pano-river/3000/800.jpg'], desc:'Arena river tubing & rafting dengan air jernih langsung dari kaki pegunungan Leuser.'},
+    {name:'Kawasan Santuari Gajah', img:u('photo-1557050543-4d5f4e07ef46',1600), fb:[u('photo-1564760055775-d63b17a55c44',1600),'https://picsum.photos/seed/ngb-pano-elephant/3000/800.jpg'], desc:'Area perawatan & pemulihan gajah sumatera bersama para mahout lokal.'}
   ];
-  SCENES.forEach(s => { const i = new Image(); i.src = s.img; }); // preload
+  SCENES.forEach(s => { const i = new Image(); i.src = s.img; });
   const imgs = [...track.children];
   const caption = $('#vtCaption'), thumbs = $$('#vtThumbs .vt-thumb');
   let cur = 0, offset = 0, imgW = 1, dragging = false, startX = 0, startOff = 0,
@@ -1187,7 +1380,6 @@ $$('[data-legal]').forEach(b => b.addEventListener('click', () => openOverlay(le
     im.src = list[0];
   };
   const measure = () => {
-    // jaga agar dua panel selalu menutupi panggung (untuk foto non-panorama seperti foto jembatan)
     const minW = Math.ceil(stage.clientWidth / 2) + 2;
     imgs.forEach(im => {
       const ratio = im.naturalHeight ? im.naturalWidth / im.naturalHeight : 0;
